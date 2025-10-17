@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBite Health</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff8f0;
+      color: #3e3e3e;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { color: #4caf50; font-size: 28px; }
+    nav a { margin-left: 30px; color: #3e3e3e; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #ff9800; }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 80px 20px;
+      background: linear-gradient(180deg, #fffbf5 0%, #fff1e0 100%);
+    }
+    .hero h2 { font-size: 48px; margin-bottom: 20px; color: #4caf50; }
+    .hero p { font-size: 20px; margin-bottom: 30px; color: #3e3e3e; }
+    .hero button { background-color: #ff9800; color: #fff; padding: 15px 30px; font-size: 18px; border-radius: 8px; transition: 0.3s; }
+    .hero button:hover { background-color: #e68a00; }
+
+    /* Video Section */
+    .hero-video {
+      margin-top: 40px;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .hero-video video { width: 100%; display: block; }
+
+    /* Features */
+    .features { display: flex; flex-wrap: wrap; justify-content: center; padding: 80px 20px; gap: 40px; }
+    .feature-card { background-color: #fff; padding: 30px; border-radius: 12px; width: 300px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .feature-card:hover { transform: translateY(-10px); }
+    .feature-card h3 { color: #4caf50; margin-bottom: 15px; }
+    .feature-card p { color: #3e3e3e; }
+
+    /* How It Works */
+    .how-it-works { padding: 80px 20px; text-align: center; }
+    .how-it-works h2 { color: #4caf50; margin-bottom: 50px; }
+    .steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .step { background-color: #fff; padding: 30px; border-radius: 12px; width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .step:hover { transform: translateY(-10px); }
+    .step h3 { color: #ff9800; margin-bottom: 15px; }
+    .step p { color: #3e3e3e; }
+
+    /* Pricing */
+    .pricing { padding: 80px 20px; text-align: center; background-color: #fff3e6; }
+    .pricing h2 { color: #4caf50; margin-bottom: 50px; }
+    .plans { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .plan { background-color: #fff; padding: 30px; border-radius: 12px; width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .plan:hover { transform: translateY(-10px); }
+    .plan h3 { color: #ff9800; margin-bottom: 15px; }
+    .plan p { margin: 10px 0; }
+    .plan button { background-color: #4caf50; color: #fff; padding: 10px 20px; border-radius: 6px; transition: 0.3s; }
+    .plan button:hover { background-color: #3e8e41; }
+
+    /* Testimonials */
+    .testimonials { padding: 80px 20px; text-align: center; }
+    .testimonials h2 { color: #4caf50; margin-bottom: 50px; }
+    .testimonial { background-color: #fff; padding: 30px; border-radius: 12px; width: 300px; margin: 0 auto 20px auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .testimonial p { font-style: italic; color: #3e3e3e; }
+    .testimonial h4 { color: #ff9800; margin-top: 15px; }
+
+    /* Newsletter */
+    .newsletter { padding: 80px 20px; text-align: center; background-color: #fffbf5; }
+    .newsletter h2 { color: #4caf50; margin-bottom: 20px; }
+    .newsletter input { padding: 12px; width: 300px; max-width: 80%; border-radius: 6px; border: 1px solid #ccc; margin-right: 10px; }
+    .newsletter button { padding: 12px 20px; background-color: #ff9800; color: #fff; border-radius: 6px; transition: 0.3s; }
+    .newsletter button:hover { background-color: #e68a00; }
+
+    /* CTA */
+    .cta { text-align: center; padding: 80px 20px; background-color: #fff3e6; }
+    .cta h2 { color: #4caf50; margin-bottom: 30px; }
+    .cta button { background-color: #ff9800; color: #fff; padding: 15px 30px; font-size: 18px; border-radius: 8px; transition: 0.3s; }
+    .cta button:hover { background-color: #e68a00; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 20px; background-color: #fff; color: #3e3e3e; box-shadow: 0 -2px 5px rgba(0,0,0,0.1); }
+    footer a { color: #ff9800; margin: 0 10px; }
+
+    @media (max-width: 768px) { .features, .steps, .plans { flex-direction: column; align-items: center; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>QuickBite Health</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#newsletter">Subscribe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Healthy Eating, Made Easy</h2>
+    <p>Ready-to-eat meals, 10-minute cooking kits, and an AI-powered meal planner—all in one platform.</p>
+    <button onclick="location.href='#pricing'">Get Started</button>
+
+    <div class="hero-video">
+      <video controls autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="feature-card"><h3>Ready-to-Eat Meals</h3><p>Delicious and nutritious meals delivered straight to your door.</p></div>
+    <div class="feature-card"><h3>10-Minute Cooking Kits</h3><p>Fresh ingredients and recipes to cook healthy meals in minutes.</p></div>
+    <div class="feature-card"><h3>AI Meal Planner</h3><p>Personalized weekly meal plans designed by AI for your lifestyle.</p></div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step"><h3>Step 1</h3><p>Choose your plan and meals based on your preferences.</p></div>
+      <div class="step"><h3>Step 2</h3><p>Receive ready-to-eat meals or cooking kits at your doorstep.</p></div>
+      <div class="step"><h3>Step 3</h3><p>Enjoy healthy, tasty meals effortlessly every day!</p></div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <h2>Choose Your Plan</h2>
+    <div class="plans">
+      <div class="plan"><h3>Basic</h3><p>3 Meals/Week</p><p>$29.99</p><button>Subscribe</button></div>
+      <div class="plan"><h3>Standard</h3><p>5 Meals/Week</p><p>$49.99</p><button>Subscribe</button></div>
+      <div class="plan"><h3>Premium</h3><p>7 Meals/Week + AI Planner</p><p>$79.99</p><button>Subscribe</button></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"QuickBite Health makes my life so much easier! Healthy meals without the hassle."</p>
+      <h4>- Priya K.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"The AI meal planner is genius. I no longer stress about what to eat each week."</p>
+      <h4>- Rahul S.</h4>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter" id="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Start Your Healthy Journey Today</h2>
+    <button onclick="location.href='#pricing'">Subscribe Now</button>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>Contact us: <a href="mailto:info@quickbitehealth.com">info@quickbitehealth.com</a> | +91 98765 43210</p>
+    <p>Follow us: <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">LinkedIn</a></p>
+    <p>&copy; 2025 QuickBite Health. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
